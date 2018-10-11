@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Account_SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <meta charset="utf-8" lang="es-cl"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <title><%: Page.Title %> - Plataforma Ecommerce</title>
+     
+  
+    <link href="~/Images/Logos/72x72.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    
+
+</head>
+<body>
+    <form runat="server">
+    <asp:ScriptManager runat="server">
+        <Scripts>
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+        </Scripts>
+    </asp:ScriptManager>
+   <header>
+       <div class="navbar navbar-default navbar-fixed-top barra">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">
+                        <asp:Image ID="Logo" runat="server" CssClass=" img-responsive logo" ImageUrl="~/Images/Logos/logo.png" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                      
+                        
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                    <asp:LoginName runat="server" CssClass="username" />
+                                </a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+           
+         <style>
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: 2000px;
+   
+}
+
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #95d7ff;
+}
+.logo {
+    max-width:180px;
+    margin-top: -12px;
+}
+.barra {
+    background-color:whitesmoke;
+    border-color: whitesmoke;
+}
+.seleccion {
+    color:  black;
+    background-color: black;
+    border-color:  black;
+    
+    
+}
+</style>
+    </header>
+        <br />
+        <br />
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET
+                </p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>

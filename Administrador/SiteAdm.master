@@ -1,0 +1,144 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteAdm.master.cs" Inherits="SiteAdm" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/Content/Estilo.css" />
+    <meta charset="utf-8" lang="es-cl"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <title><%: Page.Title %> - Plataforma Ecommerce</title>
+     
+  
+    <link href="~/Images/Logos/72x72.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    
+
+</head>
+<body>
+    <form runat="server">
+    
+   <header>
+       <div class="navbar navbar-default navbar-expand-sm barra">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/Administrador/">
+                        <asp:Image ID="Logo" runat="server" CssClass=" img-responsive logo" ImageUrl="~/Images/Logos/logo.png" /></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                       <li><a runat="server" href="~/Administrador/">Inicio</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Plataforma<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/Registro-Usuarios/">Administrar usuarios</a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/Registro-Usuarios/Registrar.aspx">Agregar Usuario</a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/Registro-Usuarios/Agregar-Cliente.aspx">Agregar Cliente al sistema</a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/Registro-Usuarios/Asignar-roles.aspx">Administrar roles de Usuarios</a></li>
+                                    
+                                </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbardroppedidos" data-toggle="dropdown">Pedidos<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/">Todos los pedidos</a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/">Pedidos Express</a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/">Anular pedido</a></li>
+                                    
+                                </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbardropclientes" data-toggle="dropdown">Clientes<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/"></a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/"></a></li>
+                                    <li><a runat="server" class="dropdown-item" href="~/Administrador/"></a></li>
+                                    
+                                </ul>
+                        </li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Login">Iniciar sesión</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a runat="server" class="username" href="~/Administrador/Manage" title="Administrar cuenta">
+
+                                    <asp:LoginName runat="server" CssClass="username" />
+                                </a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Cerrar sesión" LogoutPageUrl="~/Account/Login" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+           
+         <style>
+div.fixed {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: 2000px;
+   
+}
+
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #95d7ff;
+}
+.logo {
+    max-width:180px;
+    margin-top: -12px;
+}
+.barra {
+    background-color:whitesmoke;
+    border-color: whitesmoke;
+}
+.seleccion {
+    color:  black;
+    background-color: black;
+    border-color:  black;
+    
+    
+}
+</style>
+    </header>
+        <br />
+        <br />
+    <div id="body">
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+    </div>
+        <br />
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; <%: DateTime.Now.Year %> - FFO
+                </p>
+            </div>
+        </div>
+    </footer>
+    </form>
+</body>
+</html>
